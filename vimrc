@@ -41,22 +41,22 @@ endif
 "set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 "set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
+set smartcase		" Do smart case matching
 "set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
 "set hidden		" Hide buffers when they are abandoned
-"set mouse=a		" Enable mouse usage (all modes)
+set mouse=a		" Enable mouse usage (all modes)
 set smartindent
 set autoindent
-set number		"show the number of line
+set number relativenumber	"show the number of line
 set smarttab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-set list
+"set list
 autocmd FileType make set noexpandtab
-
+" exit from insert mode to normal mode
 inoremap jk <ESC>
 " Source a global configuration file if available
 if filereadable("/etc/vim/vimrc.local")
@@ -76,9 +76,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'tpope/vim-sensible'
+"Bundle 'tpope/vim-sensible'
 Bundle 'bling/vim-airline'
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
+Bundle 'scrooloose/nerdtree'
 Bundle 'Valloric/YouCompleteMe'
 call vundle#end()
 
@@ -88,11 +89,13 @@ filetype plugin indent on
 """"""""""""""""""""""
 set t_Co=256
 set laststatus=2
+"支持powerline字体
 let g:airline_powerline_fonts = 1
+"显示窗口tab和buffer
 let g:airline#extensions#tabline#enabled = 1
 
 """"""""""""""""""""""
-"Quickly 
+"Quickly Compile
 """"""""""""""""""""""
 "    map <F5> :call CompileRunGcc()<CR>
 "    func! CompileRunGcc()
@@ -120,7 +123,38 @@ let g:airline#extensions#tabline#enabled = 1
 "            exec "!firefox %.html &"
 "endif
 "    endfunc
-let g:jedi#auto_initialization = 1
+"let g:jedi#auto_initialization = 1
 
 "YouCompleteMe
 let g:ycm_global_ycm_extra_conf='~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+
+"""""""""""""""""""""""""""""""
+"NERDTree Config
+"""""""""""""""""""""""""""""""
+map <leader>t :NERDTreeToggle<CR>
+"map <C-n> :NERDTreeToggle<CR>
+" 显示行号
+let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+" 是否显示隐藏文件
+let NERDTreeShowHidden=1
+" 设置宽度
+let NERDTreeWinSize=30
+" 在终端启动vim时，共享NERDTree
+let g:nerdtree_tabs_open_on_console_startup=1
+" 忽略一下文件的显示
+let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+" 显示书签列表
+let NERDTreeShowBookmarks=1
+
+" vim不指定具体文件打开是，自动使用nerdtree
+" autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree |endif
+" 当vim打开一个目录时，nerdtree自动使用
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) &&
+"!exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" 当vim中没有其他文件，值剩下nerdtree的时候，自动关闭窗口
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
