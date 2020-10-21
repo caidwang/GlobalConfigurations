@@ -80,7 +80,7 @@ Plugin 'VundleVim/Vundle.vim'
 Bundle 'bling/vim-airline'
 "Bundle 'davidhalter/jedi-vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
 call vundle#end()
 
 filetype plugin indent on
