@@ -1,11 +1,3 @@
-###
- # @Author: your name
- # @Date: 2020-10-22 15:25:31
- # @LastEditTime: 2021-10-05 17:49:01
- # @LastEditors: Please set LastEditors
- # @Description: In User Settings Edit
- # @FilePath: /GlobalConfigurations/ideavimrc
-### 
 "高亮搜索结果
 set hlsearch
 "增量搜索
