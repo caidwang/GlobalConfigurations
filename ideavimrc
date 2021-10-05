@@ -45,6 +45,10 @@ vnoremap v <Esc>
 " Redo
 nnoremap U <C-r>
 
+" goto override methods
+nmap <Space>go :action OverrideMethods<CR>
+nmap g] :action GotoImplementation<CR>
+nmap g[ :action GotoSuperMethod<CR>
 " Yank to the end of line
 "nnoremap Y y$
 
@@ -61,6 +65,10 @@ nnoremap <Space>ws <C-W>s
 nnoremap <Space>w- <C-W>s
 nnoremap <Space>wv <C-W>v
 nnoremap <Space>w\| <C-W>v
+nnoremap <Space>wo :action MoveEditorToOppositeTabGroup<CR>
+
+" debug map
+nnoremap <Space>db :action ToggleLineBreakpoint<CR>
 
 " Tab operation
 nnoremap tn gt
