@@ -1,0 +1,126 @@
+{
+    // latex config
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.latex.tools": [
+        // config command line tool and its name
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        // config latex recipe
+        {
+            "name" : "xelatex -> bibtex -> xelatex*2",
+            "tools": [
+             "xelatex",
+             "bibtex",
+             "xelatex",
+             "xelatex"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
+            ]
+        }
+    ],
+    // vim emulator config
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    // exit insert mode
+    "vim.insertModeKeyBindings": [
+        {
+        "before": ["j", "k"],
+        "after": ["<Esc>"]
+        }
+    ],
+    // cancel highlight 
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+        "before": ["<leader>", "s", "c"],
+        "commands": [":nohl"]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-a>": false,
+        // "<C-f>": false
+    },
+    "explorer.confirmDelete": false,
+    // golang config
+    "go.formatTool": "goimports",
+    "files.autoSave": "onFocusChange",
+    "explorer.confirmDragAndDrop": false,
+    // turn to true when using module mode, otherwise turn false
+    "go.useLanguageServer": true,
+    // editor settings
+    "editor.lineNumbers": "relative",
+    "editor.wordWrap": "on",
+    "cmake.configureOnOpen": true,
+    "git.autofetch": true,
+    "markdown.extension.toc.levels": "2..6",
+    "python.pythonPath": "/Users/wsc/opt/anaconda3/bin/python",
+    "gitlens.codeLens.enabled": false,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.defaultDateFormat": null,
+    "gitlens.defaultTimeFormat": "hh:mm",
+    "workbench.startupEditor": "welcomePage",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "git.confirmSync": false,
+    "go.toolsManagement.autoUpdate": true,
+    "liveServer.settings.CustomBrowser": "chrome",
+    "python.defaultInterpreterPath": "/Users/wsc/opt/anaconda3/bin/python",
+    "git.enableSmartCommit": true,
+    "debug.allowBreakpointsEverywhere": true,
+    "workbench.editor.empty.hint": "hidden",
+    "http.proxy": "http://127.0.0.1:7897",
+    "js/ts.experimental.useTsgo": true,
+    "vim.commandLineModeKeyBindings": [
+    
+    ],
+}
